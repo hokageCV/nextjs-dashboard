@@ -22,6 +22,19 @@ module.exports = {
                 },
                 link: "#346bd4",
             },
+            spacing: {
+                3.6: "15px",
+                7.5: "30px",
+                45: "180px",
+                97: "385px",
+                98: "390px",
+            },
+            borderRadius: {
+                10: "10px",
+            },
+            fontFamily: {
+                lato: ["Lato", "sans-serif"],
+            },
         },
     },
     plugins: [],
