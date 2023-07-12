@@ -30,12 +30,16 @@ module.exports = {
                 3.6: "15px",
                 6.4: "25.18px",
                 7.5: "30px",
+                12.5: "50px",
+                15: "60px",
                 45: "180px",
+                70: "280px",
                 97: "385px",
                 98: "390px",
             },
             borderRadius: {
                 10: "10px",
+                "4xl": "30px",
             },
             fontFamily: {
                 lato: ["Lato", "sans-serif"],
