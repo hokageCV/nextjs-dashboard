@@ -21,9 +21,14 @@ module.exports = {
                     4: "#b0b0b0",
                 },
                 link: "#346bd4",
+                boxGreen: "#DDEFE0",
+                boxSkin: "#F4ECDD",
+                boxPink: "#EFDADA",
+                boxBlue: "#DEE0EF",
             },
             spacing: {
                 3.6: "15px",
+                6.4: "25.18px",
                 7.5: "30px",
                 45: "180px",
                 97: "385px",
@@ -34,6 +39,7 @@ module.exports = {
             },
             fontFamily: {
                 lato: ["Lato", "sans-serif"],
+                sans: ["Open Sans", "sans-serif"],
             },
         },
     },
