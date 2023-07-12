@@ -1,4 +1,37 @@
+"use client";
+
+import axios from "axios";
+import {
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    LineElement,
+    LinearScale,
+    PointElement,
+} from "chart.js";
+import { useEffect, useState } from "react";
+import { Line } from "react-chartjs-2";
+
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Legend);
+
 export default function MainGraph() {
+    const [isLoading, setIsLoading] = useState(true);
+    const [nameList, setNameList] = useState<String[]>([]);
+    const [salesList, setSalesList] = useState<Number[]>([]);
+
+    async function getData() {
+        const URL = "/api/data";
+        const response = await axios.get(URL);
+
+        setNameList(response.data.data.map((product: Product) => product.name));
+        setSalesList(response.data.data.map((product: Product) => product.sales));
+        setIsLoading(false);
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <div className="bg-white-1 my-10 px-10 py-7.5  rounded-xl">
             <div className="flex flex-row ">
@@ -12,7 +45,28 @@ export default function MainGraph() {
                     <p className="ml-[11px]">User</p>
                 </div>
             </div>
-            <div>GRAPH</div>
+            <div>
+                <p>May-June 2023</p>
+                {!isLoading && nameList.length > 0 && salesList.length > 0 ? (
+                    <Line
+                        data={{
+                            labels: nameList,
+                            datasets: [
+                                {
+                                    label: "monthly sales",
+                                    data: salesList,
+                                    fill: true,
+                                    borderColor: "pink",
+                                    pointBorderColor: "green",
+                                    tension: 0.4,
+                                },
+                            ],
+                        }}
+                    />
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </div>
         </div>
     );
 }
