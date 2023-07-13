@@ -93,7 +93,7 @@ export default function TopProducts() {
                 </div>
                 <div>
                     {nameList.length > 0 && (
-                        <div className="flex flex-col items-center justify-center gap-5 mr-6">
+                        <div className="flex flex-col items-center justify-start gap-5 mr-6">
                             <div className="flex flex-row items-center justify-center">
                                 <div className="w-2.5 h-2.5 rounded-full mr-2.5 bg-[#98D89E]"></div>
                                 <div className="flex flex-col">

@@ -28,6 +28,41 @@ export default function MainGraph() {
         setIsLoading(false);
     }
 
+    const chartData = {
+        labels: nameList,
+        datasets: [
+            {
+                label: "monthly sales",
+                data: salesList,
+                fill: true,
+                borderColor: "#98D89E",
+                pointBorderColor: "#EE8484",
+                tension: 0.4,
+            },
+        ],
+    };
+
+    const chartOptions = {
+        plugins: { legend: { display: false } },
+        responsive: true,
+        scales: {
+            y: {
+                startAtZero: false,
+                min: 100,
+                max: 600,
+                ticks: {
+                    stepSize: 100,
+                },
+            },
+            x: {
+                offset: true, // to add space before & after the x labels
+                grid: {
+                    display: false,
+                },
+            },
+        },
+    };
+
     useEffect(() => {
         getData();
     }, []);
@@ -46,23 +81,9 @@ export default function MainGraph() {
                 </div>
             </div>
             <div>
-                <p>May-June 2023</p>
+                <p className="pb-7">May-June 2023</p>
                 {!isLoading && nameList.length > 0 && salesList.length > 0 ? (
-                    <Line
-                        data={{
-                            labels: nameList,
-                            datasets: [
-                                {
-                                    label: "monthly sales",
-                                    data: salesList,
-                                    fill: true,
-                                    borderColor: "pink",
-                                    pointBorderColor: "green",
-                                    tension: 0.4,
-                                },
-                            ],
-                        }}
-                    />
+                    <Line data={chartData} options={chartOptions} height="80px" />
                 ) : (
                     <p>Loading...</p>
                 )}
