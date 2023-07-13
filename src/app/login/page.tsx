@@ -5,15 +5,17 @@ import Link from "next/link";
 
 export default function loginPage() {
     return (
-        <div className="flex flex-row">
-            <div className="flex flex-col items-center justify-center bg-black h-screen w-[588px]">
+        <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col items-center justify-center bg-black h-screen w-full lg:w-[588px]">
                 <h1 className="text-7xl text-white-1">Board.</h1>
             </div>
 
-            <div className="flex flex-col items-center justify-center flex-grow w-97 p-0">
+            <div className="flex flex-col items-center justify-center flex-grow w-full lg:w-97  p-10 lg:p-0  h-screen">
                 <div className="flex flex-col items-center justify-center">
-                    <h3 className="self-start text-4xl font-bold">Sign In</h3>
-                    <p className="self-start text-base font-lato">Sign in to your account</p>
+                    <h3 className="self-center lg:self-start text-4xl font-bold">Sign In</h3>
+                    <p className="self-center lg:self-start text-base font-lato">
+                        Sign in to your account
+                    </p>
 
                     <div className="flex flex-row justify-between items-center gap-1 w-full my-6">
                         <SignInButton provider="google" imageAlt="Google logo" />
