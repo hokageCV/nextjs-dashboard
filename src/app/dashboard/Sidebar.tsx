@@ -4,7 +4,6 @@ type ButtonProps = {
     isBold?: boolean;
 };
 
-// a button with icon on left and title on right
 function DbButton({ title, icon, isBold }: ButtonProps) {
     return (
         <div className="flex flex-row gap-3.5">
@@ -16,9 +15,9 @@ function DbButton({ title, icon, isBold }: ButtonProps) {
 
 export default function Sidebar() {
     return (
-        <div className="flex flex-col bg-black text-white-1 h-full w-70 px-12.5 py-15 rounded-4xl">
+        <div className="flex flex-col items-center lg:items-start bg-black text-white-1 h-max lg:h-full w-full md:w-10/12 lg:w-70 min-w-min px-12.5 py-15 rounded-4xl">
             <h1 className="font-bold text-4xl mb-10">Board.</h1>
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-10 mb-10">
                 <DbButton title="Dashboard" icon="/db_dashboard.svg" isBold />
                 <DbButton title="Transactions" icon="/db_transactions.svg" />
                 <DbButton title="Schedules" icon="/db_schedule.svg" />
